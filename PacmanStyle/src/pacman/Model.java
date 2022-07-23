@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -40,6 +41,42 @@ public class Model extends JPanel implements ActionListener {
     private int currentSpeed = 3;
     private short [] screenData;
     private Timer timer;
+
+    private final short levelData[] = {
+            19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 22,
+            17, 16, 16, 16, 16, 24,16, 16, 16, 16, 16, 16, 16, 16, 20,
+            0, 0, 0, 0, 0, 0, 0, 16, 16, 24, 18, 17, 17, 17, 20, 22,
+            16, 18, 18, 18, 18, 18, 17, 17, 17, 17, 22, 22, 22, 22, 22,
+            24, 24, 24, 24, 24, 24, 24, 20, 20, 20, 0, 0, 0, 0, 0, 0,
+            17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 26, 24, 20,
+            20, 20, 20, 20, 20, 20, 16, 16, 16, 16, 16, 25, 24, 22, 20,
+            19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 22,
+            17, 16, 16, 16, 16, 24,16, 16, 16, 16, 16, 16, 16, 16, 20,
+            0, 0, 0, 0, 0, 0, 0, 16, 16, 24, 18, 17, 17, 17, 20, 22,
+            16, 18, 18, 18, 18, 18, 17, 17, 17, 17, 22, 22, 22, 22, 22,
+            24, 24, 24, 24, 24, 24, 24, 20, 20, 20, 0, 0, 0, 0, 0, 0,
+            17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 26, 24, 20,
+            20, 20, 20, 20, 20, 20, 16, 16, 16, 16, 16, 25, 24, 22, 20,
+
+    };
+    /* Constructor for the game */
+    public Model() {
+        loadTheImage();
+        loadTheVariables();
+        addKeyListener(new TAdapter());
+        setFocusable(true);
+        loadTheGame();
+    }
+
+    private void loadTheImage() {
+        Down = new ImageIcon("/src/images/down.gif").getImage();
+        Up = new ImageIcon("/src/images/down.gif").getImage();
+        Left = new ImageIcon("/src/images/down.gif").getImage();
+        Right = new ImageIcon("/src/images/down.gif").getImage();
+        heart = new ImageIcon("/src/images/down.gif").getImage();
+        ghost = new ImageIcon("/src/images/down.gif").getImage();
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
